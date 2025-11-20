@@ -31,8 +31,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'glass-dark shadow-xl py-3'
-          : 'bg-transparent py-5'
+        ? 'glass-dark shadow-xl py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Header() {
               <h1 className="text-2xl font-accent font-bold gradient-text">
                 Chughtai Arts
               </h1>
-              <p className="text-xs text-dark-500 font-sans">Fine Art Portfolio</p>
+              <p className="text-xs text-dark-300 font-sans">Fine Art Portfolio</p>
             </div>
           </Link>
 
@@ -61,21 +61,6 @@ export default function Header() {
             {navLinks.map((link) => {
               const isActive = pathname === link.href ||
                 (link.href !== '/' && pathname?.startsWith(link.href))
-
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative px-4 py-2 rounded-lg font-accent text-sm font-medium transition-all duration-300 ${isActive
-                      ? 'text-accent-500 bg-accent-500/10'
-                      : 'text-dark-700 hover:text-accent-600 hover:bg-dark-100/50'
-                    }`}
-                >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent-500 rounded-full"></span>
-                  )}
-                </Link>
               )
             })}
           </div>
@@ -93,7 +78,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-dark-700 hover:bg-dark-100/50 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -117,8 +102,8 @@ export default function Header() {
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-4 py-3 rounded-xl font-accent font-medium transition-all duration-200 ${isActive
-                      ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg'
-                      : 'text-dark-700 hover:bg-dark-100/50'
+                    ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg'
+                    : 'text-dark-700 hover:bg-dark-100/50'
                     }`}
                 >
                   {link.label}
