@@ -29,12 +29,11 @@ export default function Header() {
   ]
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'glass-dark shadow-xl py-3' 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'glass-dark shadow-xl py-3'
           : 'bg-transparent py-5'
-      }`}
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -42,7 +41,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-accent-500/30 group-hover:ring-accent-500 transition-all duration-300 group-hover:scale-110">
               <Image
-                src="/images/me.jpg"
+                src="/dp.jpg"
                 alt="Chughtai Arts Logo"
                 fill
                 className="object-cover"
@@ -60,18 +59,17 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || 
+              const isActive = pathname === link.href ||
                 (link.href !== '/' && pathname?.startsWith(link.href))
-              
+
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 rounded-lg font-accent text-sm font-medium transition-all duration-300 ${
-                    isActive
+                  className={`relative px-4 py-2 rounded-lg font-accent text-sm font-medium transition-all duration-300 ${isActive
                       ? 'text-accent-500 bg-accent-500/10'
                       : 'text-dark-700 hover:text-accent-600 hover:bg-dark-100/50'
-                  }`}
+                    }`}
                 >
                   {link.label}
                   {isActive && (
@@ -104,26 +102,24 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <div 
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
-          }`}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+            }`}
         >
           <div className="glass rounded-2xl p-4 space-y-2 shadow-xl">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || 
+              const isActive = pathname === link.href ||
                 (link.href !== '/' && pathname?.startsWith(link.href))
-              
+
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-xl font-accent font-medium transition-all duration-200 ${
-                    isActive
+                  className={`block px-4 py-3 rounded-xl font-accent font-medium transition-all duration-200 ${isActive
                       ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg'
                       : 'text-dark-700 hover:bg-dark-100/50'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

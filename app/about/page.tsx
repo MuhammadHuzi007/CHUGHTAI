@@ -60,7 +60,7 @@ export default function About() {
   return (
     <main className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-900 via-dark-800 to-dark-900 pt-32">
         <div className="absolute inset-0 opacity-20">
@@ -90,7 +90,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-r from-accent-500 to-primary-500 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
               <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
                 <Image
-                  src="/images/me.jpg"
+                  src="/dp.jpg"
                   alt="Museera Aftab - Fine Arts Student and Artist"
                   width={600}
                   height={600}
@@ -105,15 +105,15 @@ export default function About() {
               <div className="inline-block px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-4">
                 <span className="text-primary-600 font-accent text-sm font-medium">Introduction</span>
               </div>
-              
+
               <h2 className="text-4xl font-display font-bold text-dark-900 mb-4">
                 Creative Journey
               </h2>
-              
+
               <p className="text-lg text-dark-700 leading-relaxed">
                 I am <strong className="text-accent-600">Museera Aftab</strong>, a Fine Arts student majoring in <strong className="text-primary-600">Textiles</strong>, with a deep passion for crafting expressive and original works across various mediums. My creative journey combines traditional craftsmanship with contemporary aesthetics, reflected in everything from realistic portraiture to handcrafted products like crochet and stained glass jewelry.
               </p>
-              
+
               <p className="text-lg text-dark-700 leading-relaxed">
                 Through years of artistic exploration, I've developed a strong command over both fabric-based design and visual storytelling. Whether it's detailed digital art, hand-dyed textiles, or intricate jewelry making, my focus remains on evoking meaning through material and form.
               </p>
@@ -153,11 +153,11 @@ export default function About() {
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-500 to-primary-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <i className={`${skill.icon} text-white text-xl`}></i>
                   </div>
-                  
+
                   <h3 className="text-xl font-display font-bold text-dark-900 mb-4 group-hover:text-accent-600 transition-colors">
                     {skill.category}
                   </h3>
-                  
+
                   <ul className="space-y-2">
                     {skill.items.map((item, i) => (
                       <li key={i} className="flex items-start text-dark-700 text-sm">

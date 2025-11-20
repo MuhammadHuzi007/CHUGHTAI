@@ -232,22 +232,64 @@ export default function PortfolioManagement() {
               {/* Image Upload */}
               <div>
                 <label className="block text-sm font-accent font-semibold text-dark-900 mb-2">
-                  Image <span className="text-accent-500">*</span>
+                  Main Image <span className="text-accent-500">*</span>
                 </label>
                 {formData.image && (
-                  <div className="mb-4 relative w-48 h-48 rounded-xl overflow-hidden border-2 border-dark-200">
+                  <div className="mb-4 relative w-48 h-48 rounded-xl overflow-hidden border-2 border-dark-200 group">
                     <Image
                       src={formData.image}
                       alt="Preview"
                       fill
                       className="object-cover"
                     />
+                    <button
+                      type="button"
+                      onClick={handleRemoveMainImage}
+                      className="absolute top-2 right-2 bg-red-500 text-white w-8 h-8 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-red-600"
+                    >
+                      <i className="fa-solid fa-trash text-sm"></i>
+                    </button>
                   </div>
                 )}
                 <input
                   type="file"
                   accept="image/*"
-                  onChange={handleFileUpload}
+                  onChange={(e) => handleFileUpload(e, true)}
+                  disabled={uploading}
+                  className="w-full px-4 py-3 rounded-xl border-2 border-dark-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-accent file:bg-accent-500 file:text-white hover:file:bg-accent-600 cursor-pointer"
+                />
+              </div>
+
+              {/* Additional Images */}
+              <div>
+                <label className="block text-sm font-accent font-semibold text-dark-900 mb-2">
+                  Additional Images
+                </label>
+                {formData.images && formData.images.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    {formData.images.map((img, index) => (
+                      <div key={index} className="relative h-32 rounded-xl overflow-hidden border-2 border-dark-200 group">
+                        <Image
+                          src={img}
+                          alt={`Gallery ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveImage(index)}
+                          className="absolute top-2 right-2 bg-red-500 text-white w-6 h-6 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-red-600"
+                        >
+                          <i className="fa-solid fa-times text-xs"></i>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleFileUpload(e, false)}
                   disabled={uploading}
                   className="w-full px-4 py-3 rounded-xl border-2 border-dark-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-accent file:bg-accent-500 file:text-white hover:file:bg-accent-600 cursor-pointer"
                 />
