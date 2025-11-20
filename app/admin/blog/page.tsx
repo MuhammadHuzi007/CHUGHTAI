@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import AdminLayout from '@/components/AdminLayout'
 import Image from 'next/image'
@@ -18,7 +18,7 @@ interface BlogPost {
   readTime?: string
 }
 
-export default function BlogManagement() {
+function BlogManagementContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const action = searchParams.get('action')
@@ -130,8 +130,10 @@ export default function BlogManagement() {
         setSuccess(editId ? 'Blog post updated successfully!' : 'Blog post created successfully!')
         setFormData({
           image: '',
+          images: [],
           title: '',
           excerpt: '',
+          content: '',
           date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
           category: 'Textiles',
           alt: '',
@@ -475,4 +477,20 @@ export default function BlogManagement() {
     </AdminLayout>
   )
 }
+
+function BlogManagementPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center text-dark-600 font-accent text-lg">
+          Loading blog dashboard...
+        </div>
+      }
+    >
+      <BlogManagementContent />
+    </Suspense>
+  )
+}
+
+export default BlogManagementPage
 

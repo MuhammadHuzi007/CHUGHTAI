@@ -69,6 +69,7 @@ function initializeData() {
       {
         id: 1,
         image: '/images/1.jpg',
+        images: ['/images/1.jpg'],
         title: 'Portrait Study',
         description: 'Acrylic on canvas, 2025',
         alt: 'Portrait Study - Acrylic painting by Chughtai Arts',
@@ -77,6 +78,7 @@ function initializeData() {
       {
         id: 2,
         image: '/images/2.png',
+        images: ['/images/2.png'],
         title: 'Arabic Calligraphy',
         description: 'Ink on paper, 2024',
         alt: 'Arabic Calligraphy artwork by Chughtai Arts',
@@ -85,6 +87,7 @@ function initializeData() {
       {
         id: 3,
         image: '/images/3.jpg',
+        images: ['/images/3.jpg'],
         title: 'Embroidered Fabric',
         description: 'Silk and cotton, 2025',
         alt: 'Embroidered Fabric textile design by Chughtai Arts',
@@ -93,6 +96,7 @@ function initializeData() {
       {
         id: 4,
         image: '/images/1.jpg',
+        images: ['/images/1.jpg'],
         title: 'Pencil Sketch',
         description: 'Graphite on paper, 2024',
         alt: 'Pencil Sketch artwork by Chughtai Arts',
@@ -101,6 +105,7 @@ function initializeData() {
       {
         id: 5,
         image: '/images/3.jpg',
+        images: ['/images/3.jpg'],
         title: 'Landscape Painting',
         description: 'Oil on canvas, 2025',
         alt: 'Landscape Painting by Chughtai Arts',

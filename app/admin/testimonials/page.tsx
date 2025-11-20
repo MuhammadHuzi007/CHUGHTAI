@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import AdminLayout from '@/components/AdminLayout'
 
@@ -12,7 +12,7 @@ interface Testimonial {
   rating: number
 }
 
-export default function TestimonialsManagement() {
+function TestimonialsManagementContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const action = searchParams.get('action')
@@ -278,7 +278,7 @@ export default function TestimonialsManagement() {
                         <i key={i} className="fa-solid fa-star text-accent-500 text-sm"></i>
                       ))}
                     </div>
-                    <p className="text-dark-700 italic mb-3">"{testimonial.text}"</p>
+                    <p className="text-dark-700 italic mb-3">&ldquo;{testimonial.text}&rdquo;</p>
                     <div>
                       <p className="font-accent font-semibold text-dark-900">{testimonial.author}</p>
                       <p className="text-sm text-dark-600">{testimonial.role}</p>
@@ -323,4 +323,20 @@ export default function TestimonialsManagement() {
     </AdminLayout>
   )
 }
+
+function TestimonialsManagementPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center text-dark-600 font-accent text-lg">
+          Loading testimonials dashboard...
+        </div>
+      }
+    >
+      <TestimonialsManagementContent />
+    </Suspense>
+  )
+}
+
+export default TestimonialsManagementPage
 

@@ -46,7 +46,7 @@ export default function Contact() {
     setTimeout(() => {
       setMessage({
         type: 'success',
-        text: "Thank you! Your message has been sent successfully. I'll get back to you soon.",
+        text: "Thank you! Your message has been sent successfully. I&rsquo;ll get back to you soon.",
       })
       setFormData({ name: '', email: '', message: '', file: null })
       setIsSubmitting(false)
@@ -80,10 +80,10 @@ export default function Contact() {
             <span className="text-accent-400 font-accent text-sm font-medium">Get in Touch</span>
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white mb-6">
-            Let's <span className="gradient-text">Connect</span>
+            Let&rsquo;s <span className="gradient-text">Connect</span>
           </h1>
           <p className="text-xl sm:text-2xl text-dark-200 max-w-3xl mx-auto">
-            Have a project in mind? Let's create something extraordinary together!
+            Have a project in mind? Let&rsquo;s create something extraordinary together!
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function Contact() {
                   Contact <span className="gradient-text">Form</span>
                 </h2>
                 <p className="text-dark-600">
-                  Fill out the form and we'll respond as soon as possible
+                  Fill out the form and we&rsquo;ll respond as soon as possible
                 </p>
               </div>
 
@@ -210,7 +210,7 @@ export default function Contact() {
                   Reach <span className="gradient-text">Out</span>
                 </h2>
                 <p className="text-dark-600 mb-8">
-                  We're here to help! Get in touch with us through any of these channels.
+                  We&rsquo;re here to help! Get in touch with us through any of these channels.
                 </p>
               </div>
 

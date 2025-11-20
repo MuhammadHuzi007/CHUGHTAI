@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Header from '@/components/Header'
@@ -30,13 +30,8 @@ export default function BlogDetail() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  useEffect(() => {
-    if (id) {
-      fetchBlogPost()
-    }
-  }, [id])
-
-  const fetchBlogPost = async () => {
+  const fetchBlogPost = useCallback(async () => {
+    if (!id) return
     try {
       const res = await fetch(`/api/blog/${id}`)
       const data = await res.json()
@@ -56,7 +51,11 @@ export default function BlogDetail() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [id, router])
+
+  useEffect(() => {
+    fetchBlogPost()
+  }, [fetchBlogPost])
 
   const handleImageClick = (index: number) => {
     setCurrentImageIndex(index)

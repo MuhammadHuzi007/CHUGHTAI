@@ -115,7 +115,7 @@ export default function About() {
               </p>
 
               <p className="text-lg text-dark-700 leading-relaxed">
-                Through years of artistic exploration, I've developed a strong command over both fabric-based design and visual storytelling. Whether it's detailed digital art, hand-dyed textiles, or intricate jewelry making, my focus remains on evoking meaning through material and form.
+                Through years of artistic exploration, I&rsquo;ve developed a strong command over both fabric-based design and visual storytelling. Whether it&rsquo;s detailed digital art, hand-dyed textiles, or intricate jewelry making, my focus remains on evoking meaning through material and form.
               </p>
 
               <div className="pt-4">

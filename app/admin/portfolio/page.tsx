@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import AdminLayout from '@/components/AdminLayout'
 import Image from 'next/image'
@@ -28,7 +28,7 @@ const categories = [
   { value: 'digital', label: 'Digital Art' },
 ]
 
-export default function PortfolioManagement() {
+function PortfolioManagementContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const action = searchParams.get('action')
@@ -159,7 +159,18 @@ export default function PortfolioManagement() {
       const data = await res.json()
       if (data.success) {
         setSuccess(editId ? 'Portfolio item updated successfully!' : 'Portfolio item created successfully!')
-        setFormData({ image: '', title: '', description: '', alt: '', category: 'portraits' })
+        setFormData({
+          image: '',
+          images: [],
+          title: '',
+          description: '',
+          content: '',
+          alt: '',
+          category: 'portraits',
+          year: '',
+          medium: '',
+          dimensions: '',
+        })
         setShowForm(false)
         router.push('/admin/portfolio')
         fetchItems()
@@ -543,4 +554,20 @@ export default function PortfolioManagement() {
     </AdminLayout>
   )
 }
+
+function PortfolioManagementPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center text-dark-600 font-accent text-lg">
+          Loading portfolio dashboard...
+        </div>
+      }
+    >
+      <PortfolioManagementContent />
+    </Suspense>
+  )
+}
+
+export default PortfolioManagementPage
 

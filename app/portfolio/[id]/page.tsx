@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Header from '@/components/Header'
@@ -31,13 +31,8 @@ export default function PortfolioDetail() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  useEffect(() => {
-    if (id) {
-      fetchPortfolioItem()
-    }
-  }, [id])
-
-  const fetchPortfolioItem = async () => {
+  const fetchPortfolioItem = useCallback(async () => {
+    if (!id) return
     try {
       const res = await fetch(`/api/portfolio/${id}`)
       const data = await res.json()
@@ -57,7 +52,11 @@ export default function PortfolioDetail() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [id, router])
+
+  useEffect(() => {
+    fetchPortfolioItem()
+  }, [fetchPortfolioItem])
 
   const handleImageClick = (index: number) => {
     setCurrentImageIndex(index)

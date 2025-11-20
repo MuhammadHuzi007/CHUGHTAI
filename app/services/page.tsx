@@ -43,7 +43,7 @@ export default function Services() {
     setTimeout(() => {
       setMessage({
         type: 'success',
-        text: "Thank you! Your custom order request has been received. I'll contact you shortly to discuss the details.",
+        text: "Thank you! Your custom order request has been received. I&rsquo;ll contact you shortly to discuss the details.",
       })
       setFormData({ name: '', email: '', orderDetails: '', file: null })
       setIsSubmitting(false)
@@ -130,7 +130,7 @@ export default function Services() {
                   Request a <span className="gradient-text">Custom Order</span>
                 </h2>
                 <p className="text-dark-600">
-                  Fill out the form below and we'll get back to you within 24 hours
+                  Fill out the form below and we&rsquo;ll get back to you within 24 hours
                 </p>
               </div>
 
