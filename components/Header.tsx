@@ -61,6 +61,20 @@ export default function Header() {
             {navLinks.map((link) => {
               const isActive = pathname === link.href ||
                 (link.href !== '/' && pathname?.startsWith(link.href))
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative px-4 py-2 rounded-lg font-accent text-sm font-medium transition-all duration-300 ${isActive
+                      ? 'text-accent-400 bg-accent-500/10'
+                      : 'text-dark-100 hover:text-accent-400 hover:bg-white/10'
+                    }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent-500 rounded-full"></span>
+                  )}
+                </Link>
               )
             })}
           </div>
