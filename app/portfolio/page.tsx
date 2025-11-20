@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PortfolioCard from '@/components/PortfolioCard'
-import Lightbox from '@/components/Lightbox'
 
 interface PortfolioItem {
   id: number
@@ -28,8 +27,6 @@ const categories = [
 export default function Portfolio() {
   const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -53,21 +50,6 @@ export default function Portfolio() {
   const filteredItems = selectedCategory === 'all'
     ? portfolioItems
     : portfolioItems.filter(item => item.category === selectedCategory)
-
-  const handleImageClick = (index: number) => {
-    const itemIndex = portfolioItems.findIndex(item => 
-      item.id === filteredItems[index].id
-    )
-    setCurrentIndex(itemIndex)
-    setLightboxOpen(true)
-  }
-
-  const lightboxImages = portfolioItems.map(item => ({
-    src: item.image,
-    alt: item.alt,
-    title: item.title,
-    description: item.description,
-  }))
 
   const getCategoryLabel = (categoryId: string) => {
     return categories.find(c => c.id === categoryId)?.label || categoryId
@@ -107,11 +89,10 @@ export default function Portfolio() {
                 key={category.id}
                 type="button"
                 onClick={() => setSelectedCategory(category.id)}
-                className={`group px-6 py-3 rounded-full font-accent font-medium text-sm transition-all duration-300 flex items-center space-x-2 ${
-                  selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg shadow-accent-500/30 scale-105'
-                    : 'bg-white text-dark-700 border border-dark-200 hover:border-accent-500 hover:text-accent-600 hover:bg-accent-50 hover:scale-105'
-                }`}
+                className={`group px-6 py-3 rounded-full font-accent font-medium text-sm transition-all duration-300 flex items-center space-x-2 ${selectedCategory === category.id
+                  ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg shadow-accent-500/30 scale-105'
+                  : 'bg-white text-dark-700 border border-dark-200 hover:border-accent-500 hover:text-accent-600 hover:bg-accent-50 hover:scale-105'
+                  }`}
               >
                 <i className={`${category.icon} text-sm`}></i>
                 <span>{category.label}</span>
@@ -135,7 +116,6 @@ export default function Portfolio() {
                   description={item.description}
                   alt={item.alt}
                   category={getCategoryLabel(item.category)}
-                  onClick={() => handleImageClick(index)}
                   delay={index * 100}
                 />
               ))}
@@ -151,15 +131,6 @@ export default function Portfolio() {
           )}
         </div>
       </section>
-
-      <Lightbox
-        isOpen={lightboxOpen}
-        images={lightboxImages}
-        currentIndex={currentIndex}
-        onClose={() => setLightboxOpen(false)}
-        onNext={() => setCurrentIndex((prev) => (prev + 1) % lightboxImages.length)}
-        onPrev={() => setCurrentIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length)}
-      />
 
       <Footer />
     </main>
