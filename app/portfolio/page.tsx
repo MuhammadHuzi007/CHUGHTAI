@@ -60,38 +60,38 @@ export default function Portfolio() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-900 via-dark-800 to-dark-900 pt-32">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-palette-darkest via-palette-dark to-palette-darkest pt-32">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-accent-500/30 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-500/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-palette-mid/30 rounded-full blur-3xl animate-blob"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-palette-light/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 backdrop-blur-sm mb-6">
-            <span className="text-accent-400 font-accent text-sm font-medium">Portfolio Gallery</span>
+          <div className="inline-block px-4 py-2 rounded-full bg-palette-light/10 border border-palette-light/20 backdrop-blur-sm mb-6 animate-slide-up">
+            <span className="text-palette-light font-accent text-sm font-medium tracking-wide">Portfolio Gallery</span>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white mb-6">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white mb-6 animate-slide-up animate-delay-100">
             My <span className="gradient-text">Artwork</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-dark-200 max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl text-palette-light/80 max-w-3xl mx-auto animate-slide-up animate-delay-200">
             Discover unique fine arts and textile creations
           </p>
         </div>
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-24 bg-gradient-to-b from-white via-dark-50 to-white">
+      <section className="py-24 bg-palette-lightest">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-16 animate-slide-up animate-delay-300">
             {categories.map((category) => (
               <button
                 key={category.id}
                 type="button"
                 onClick={() => setSelectedCategory(category.id)}
                 className={`group px-6 py-3 rounded-full font-accent font-medium text-sm transition-all duration-300 flex items-center space-x-2 ${selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg shadow-accent-500/30 scale-105'
-                  : 'bg-white text-dark-700 border border-dark-200 hover:border-accent-500 hover:text-accent-600 hover:bg-accent-50 hover:scale-105'
+                  ? 'bg-gradient-to-r from-palette-mid to-palette-dark text-white shadow-lg shadow-palette-mid/30 scale-105'
+                  : 'bg-white text-palette-dark border border-palette-mid/20 hover:border-palette-mid hover:text-palette-mid hover:bg-palette-lightest hover:scale-105'
                   }`}
               >
                 <i className={`${category.icon} text-sm`}></i>
@@ -103,7 +103,7 @@ export default function Portfolio() {
           {/* Artwork Grid */}
           {loading ? (
             <div className="flex items-center justify-center py-20">
-              <i className="fa-solid fa-spinner fa-spin text-4xl text-accent-500"></i>
+              <i className="fa-solid fa-spinner fa-spin text-4xl text-palette-mid"></i>
             </div>
           ) : filteredItems.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -122,11 +122,11 @@ export default function Portfolio() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent-500/20 to-primary-500/20 flex items-center justify-center">
-                <i className="fa-solid fa-image text-4xl text-dark-400"></i>
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-palette-mid/20 to-palette-dark/20 flex items-center justify-center">
+                <i className="fa-solid fa-image text-4xl text-palette-dark/50"></i>
               </div>
-              <h3 className="text-2xl font-display font-bold text-dark-900 mb-2">No items found</h3>
-              <p className="text-dark-600">Try selecting a different category</p>
+              <h3 className="text-2xl font-display font-bold text-palette-darkest mb-2">No items found</h3>
+              <p className="text-palette-dark/70">Try selecting a different category</p>
             </div>
           )}
         </div>

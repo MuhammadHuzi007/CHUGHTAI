@@ -9,7 +9,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-palette-darkest via-palette-dark to-palette-darkest text-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -22,20 +22,20 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-display font-bold gradient-text">Chughtai Arts</h3>
-            <p className="text-dark-300 leading-relaxed">
+            <p className="text-palette-light/80 leading-relaxed">
               Creating unique fine arts and textile creations that combine traditional craftsmanship with contemporary aesthetics.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-accent font-semibold text-lg mb-4 text-accent-400">Quick Links</h4>
+            <h4 className="font-accent font-semibold text-lg mb-4 text-palette-light">Quick Links</h4>
             <ul className="space-y-3">
               {['Home', 'Portfolio', 'About', 'Services', 'Blog', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link
                     href={`/${item.toLowerCase()}`}
-                    className="text-dark-300 hover:text-accent-400 transition-colors duration-200 hover:translate-x-1 inline-block transform"
+                    className="text-palette-light/70 hover:text-palette-mid transition-colors duration-200 hover:translate-x-1 inline-block transform"
                   >
                     {item}
                   </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h4 className="font-accent font-semibold text-lg mb-4 text-accent-400">Connect</h4>
+            <h4 className="font-accent font-semibold text-lg mb-4 text-palette-light">Connect</h4>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -54,7 +54,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-dark-800/50 backdrop-blur-sm border border-dark-700 flex items-center justify-center text-dark-300 hover:text-accent-400 hover:border-accent-500 hover:bg-accent-500/10 transition-all duration-300 hover:scale-110 hover:rotate-6"
+                  className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-palette-light hover:text-white hover:border-palette-mid hover:bg-palette-mid/20 transition-all duration-300 hover:scale-110 hover:rotate-6"
                   aria-label={social.label}
                 >
                   <i className={`${social.icon} text-lg`}></i>
@@ -65,15 +65,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-dark-700 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-dark-400 text-sm">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-palette-light/60 text-sm">
             © {new Date().getFullYear()} Chughtai Arts. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm text-dark-400">
-            <Link href="/privacy" className="hover:text-accent-400 transition-colors">
+          <div className="flex space-x-6 text-sm text-palette-light/60">
+            <Link href="/privacy" className="hover:text-palette-mid transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-accent-400 transition-colors">
+            <Link href="/terms" className="hover:text-palette-mid transition-colors">
               Terms of Service
             </Link>
           </div>

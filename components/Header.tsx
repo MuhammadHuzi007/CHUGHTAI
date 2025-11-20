@@ -39,7 +39,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-accent-500/30 group-hover:ring-accent-500 transition-all duration-300 group-hover:scale-110">
+            <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-palette-mid/30 group-hover:ring-palette-mid transition-all duration-300 group-hover:scale-110">
               <Image
                 src="/dp.jpg"
                 alt="Chughtai Arts Logo"
@@ -52,7 +52,7 @@ export default function Header() {
               <h1 className="text-2xl font-accent font-bold gradient-text">
                 Chughtai Arts
               </h1>
-              <p className="text-xs text-dark-300 font-sans">Fine Art Portfolio</p>
+              <p className="text-xs text-palette-dark/80 font-sans">Fine Art Portfolio</p>
             </div>
           </Link>
 
@@ -66,13 +66,13 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-4 py-2 rounded-lg font-accent text-sm font-medium transition-all duration-300 ${isActive
-                      ? 'text-accent-400 bg-accent-500/10'
-                      : 'text-dark-100 hover:text-accent-400 hover:bg-white/10'
+                    ? 'text-palette-mid bg-palette-mid/10'
+                    : 'text-palette-dark hover:text-palette-mid hover:bg-white/10'
                     }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent-500 rounded-full"></span>
+                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-palette-mid rounded-full"></span>
                   )}
                 </Link>
               )
@@ -83,7 +83,7 @@ export default function Header() {
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="px-6 py-2.5 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-full font-accent font-semibold text-sm shadow-lg shadow-accent-500/30 hover:shadow-xl hover:shadow-accent-500/40 hover:scale-105 transition-all duration-300"
+              className="px-6 py-2.5 bg-gradient-to-r from-palette-mid to-palette-dark text-white rounded-full font-accent font-semibold text-sm shadow-lg shadow-palette-mid/30 hover:shadow-xl hover:shadow-palette-mid/40 hover:scale-105 transition-all duration-300"
             >
               Get Started
             </Link>
@@ -92,7 +92,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-palette-dark hover:bg-palette-mid/10 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -116,8 +116,8 @@ export default function Header() {
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-4 py-3 rounded-xl font-accent font-medium transition-all duration-200 ${isActive
-                    ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-lg'
-                    : 'text-dark-700 hover:bg-dark-100/50'
+                    ? 'bg-gradient-to-r from-palette-mid to-palette-dark text-white shadow-lg'
+                    : 'text-palette-dark hover:bg-palette-mid/10'
                     }`}
                 >
                   {link.label}
@@ -127,7 +127,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setIsMenuOpen(false)}
-              className="block px-4 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-accent font-semibold text-center shadow-lg hover:shadow-xl transition-all duration-200 mt-2"
+              className="block px-4 py-3 bg-gradient-to-r from-palette-dark to-palette-darkest text-white rounded-xl font-accent font-semibold text-center shadow-lg hover:shadow-xl transition-all duration-200 mt-2"
             >
               Get Started
             </Link>
