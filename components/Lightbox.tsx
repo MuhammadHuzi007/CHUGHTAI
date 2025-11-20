@@ -59,9 +59,8 @@ export default function Lightbox({
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-dark-900/95 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`fixed inset-0 z-[100] bg-dark-900/95 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
@@ -85,7 +84,7 @@ export default function Lightbox({
           >
             <i className="fa-solid fa-chevron-left text-xl group-hover:-translate-x-1 transition-transform"></i>
           </button>
-          
+
           <button
             onClick={onNext}
             className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-dark-800/50 backdrop-blur-sm border border-dark-700 text-white hover:bg-accent-500 hover:border-accent-500 transition-all duration-300 flex items-center justify-center z-10 group"
@@ -97,8 +96,8 @@ export default function Lightbox({
       )}
 
       {/* Image Container */}
-      <div className="max-w-6xl max-h-[90vh] mx-auto px-4 flex flex-col items-center animate-scale-in">
-        <div className="relative w-full h-[80vh] rounded-2xl overflow-hidden shadow-2xl border border-dark-700/50">
+      <div className="w-full h-full p-4 flex flex-col items-center justify-center animate-scale-in">
+        <div className="relative w-full h-full max-w-[95vw] max-h-[85vh] rounded-lg overflow-hidden shadow-2xl">
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
